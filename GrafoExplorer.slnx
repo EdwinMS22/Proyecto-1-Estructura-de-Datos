@@ -1,0 +1,7 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="GrafoExplorer/GrafoExplorer.vcxproj" Id="620c66a6-f49c-4808-8ca7-9a5c60bcd8ac" />
+</Solution>
