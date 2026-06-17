@@ -18,12 +18,8 @@ void Visualizador::dibujar() {
 	ventana.display();
 }
 
-Visualizador::Visualizador(const Config& config) :
-	config(config),
-	ventana(sf::VideoMode({config.anchoVentana, config.altoVentana}),
-		config.titulo,
-		sf::Style::Titlebar | sf::Style::Close) 
-{
+Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config) : 
+	ventana(ventana), config(config) {
 	ventana.setFramerateLimit(60);
 }
 

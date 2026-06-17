@@ -9,6 +9,7 @@ GrafoExplorer/
 ├── ed/             # Estructuras de datos genéricas
 ├── interfaz/       # Interfaz gráfica (SFML) y manejo de eventos
 ├── modelo/         # Entidades del dominio (grafo, nodo, arco)
+├── recursos/       # Recursos visuales de la interfaz gráfica
 ├── sistema/        # Generación del grafo, lógica y coordinación
 └── main.cpp        # Punto de entrada
 ```

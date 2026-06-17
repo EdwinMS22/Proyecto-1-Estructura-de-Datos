@@ -6,12 +6,12 @@
 class Visualizador {
 private:
 	const Config& config;
-	sf::RenderWindow ventana;
+	sf::RenderWindow& ventana;
 
 	void procesarEventos();
 	void dibujar();
 
 public:
-	explicit Visualizador(const Config& config);
+	Visualizador(sf::RenderWindow& ventana, const Config& config);
 	void ejecutar();
 };
