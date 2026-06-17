@@ -6,7 +6,7 @@
 static int run() {
     Config config;
 
-    sf::RenderWindow ventana(sf::VideoMode({ 1000, 700 }),
+    sf::RenderWindow ventana(sf::VideoMode({700, 700}),
         "GrafoExplorer - Configuracion",
         sf::Style::Titlebar | sf::Style::Close);
 
