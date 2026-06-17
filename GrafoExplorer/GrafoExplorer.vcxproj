@@ -145,6 +145,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sistema\Configurador.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interfaz\Visualizador.cpp" />
   </ItemGroup>
@@ -154,6 +155,7 @@
     <None Include="modelo\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sistema\Configurador.h" />
     <ClInclude Include="sistema\Config.h" />
     <ClInclude Include="interfaz\Visualizador.h" />
   </ItemGroup>

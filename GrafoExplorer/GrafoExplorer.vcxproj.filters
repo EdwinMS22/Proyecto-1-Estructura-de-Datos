@@ -18,12 +18,27 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="interfaz\Visualizador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sistema\Configurador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ed\.gitkeep" />
     <None Include="modelo\.gitkeep" />
     <None Include="algoritmos\.gitkeep" />
-    <None Include="sistema\.gitkeep" />
-    <None Include="interfaz\.gitkeep" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="sistema\Config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="interfaz\Visualizador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sistema\Configurador.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
