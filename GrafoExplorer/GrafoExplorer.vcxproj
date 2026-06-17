@@ -146,15 +146,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="interfaz\Visualizador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="algoritmos\.gitkeep" />
     <None Include="ed\.gitkeep" />
-    <None Include="interfaz\.gitkeep" />
     <None Include="modelo\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="sistema\Config.h" />
+    <ClInclude Include="interfaz\Visualizador.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
