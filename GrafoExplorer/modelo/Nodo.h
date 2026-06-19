@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ed/ArrayList.h";
+#include "../ed/ArrayList.h"
 
 class Nodo {
 public:

@@ -50,5 +50,8 @@
     <ClInclude Include="modelo\Nodo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="modelo\Grafo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
