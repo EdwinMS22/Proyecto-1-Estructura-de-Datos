@@ -24,12 +24,27 @@ int Controlador::iniciar() {
 
 	GeneradorGrafo generador(config.cantidadNodos, config.distanciaConexion,
 							 config.maximoVecinos, config.anchoVentana, config.altoVentana);
-	grafoBase = generador.generar();
+	grafoBase = generarGrafo();
 
 	Visualizador visualizador(ventana, config, grafoBase, *this);
 	visualizador.ejecutar();
 	
 	return 0;
+}
+
+Grafo* Controlador::generarGrafo() {
+	GeneradorGrafo generador(config.cantidadNodos, config.distanciaConexion,
+							 config.maximoVecinos, config.anchoVentana, config.altoVentana,
+							 20, static_cast<int>(Visualizador::ALTO_HUD));
+	return generador.generar();
+}
+
+Grafo* Controlador::regenerarGrafo() {
+	delete resultado;
+	resultado = nullptr;
+	delete grafoBase;
+	grafoBase = generarGrafo();
+	return grafoBase;
 }
 
 Grafo* Controlador::ejecutarAlgoritmo(Algoritmo algoritmo, int nodoInicio, int nodoDestino) {

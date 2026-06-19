@@ -11,6 +11,8 @@ private:
 	Grafo* grafoBase;
 	Grafo* resultado;
 
+	Grafo* generarGrafo();
+
 public:
 	Controlador();
 	~Controlador();
@@ -19,4 +21,5 @@ public:
 
 	// EjecutorAlgoritmos: punto único donde se llaman los algorítmos.
 	Grafo* ejecutarAlgoritmo(Algoritmo algoritmo, int nodoInicio, int nodoDestino) override;
+	Grafo* regenerarGrafo() override;
 };
