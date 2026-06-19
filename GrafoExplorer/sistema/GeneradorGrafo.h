@@ -12,19 +12,19 @@ private:
 	int ancho;
 	int alto;
 	int margen;	// para que no se corten en la pantalla
+	int margenSuperior;
 	std::mt19937 motor;
 
 public:
 	// Constructor por defecto: semilla aleatoria distinta en cada corrida
 	GeneradorGrafo(int cantidadNodos, float distanciaConexion, int maxVecinos,
-		int ancho, int alto, int margen = 20)
+		int ancho, int alto, int margen = 20, int margenSuperior = 20)
 		: GeneradorGrafo(cantidadNodos, distanciaConexion, maxVecinos,
-			ancho, alto, margen, std::random_device{}()) {
+			ancho, alto, margen, margenSuperior, std::random_device{}()) {
 	}
 
-	// Constructor con semilla fija: depuracion / defensa.
 	GeneradorGrafo(int cantidadNodos, float distanciaConexion, int maxVecinos,
-		int ancho, int alto, int margen, unsigned int semilla)
+		int ancho, int alto, int margen, int margenSuperior, unsigned int semilla)
 		: motor(semilla) {
 		this->cantidadNodos = cantidadNodos;
 		this->distanciaConexion = distanciaConexion;
@@ -32,6 +32,7 @@ public:
 		this->ancho = ancho;
 		this->alto = alto;
 		this->margen = margen;
+		this->margenSuperior = margenSuperior;
 	}
 
 	// El que lo llama es dueño y debe liberarlo
