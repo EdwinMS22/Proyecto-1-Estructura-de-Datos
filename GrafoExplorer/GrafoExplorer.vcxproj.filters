@@ -47,5 +47,8 @@
     <ClInclude Include="ed\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="modelo\Nodo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

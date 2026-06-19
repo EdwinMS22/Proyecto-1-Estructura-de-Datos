@@ -157,6 +157,7 @@
     <ClInclude Include="ed\List.h" />
     <ClInclude Include="modelo\Arco.h" />
     <ClInclude Include="interfaz\PantallaConfig.h" />
+    <ClInclude Include="modelo\Nodo.h" />
     <ClInclude Include="sistema\Config.h" />
     <ClInclude Include="interfaz\Visualizador.h" />
   </ItemGroup>
