@@ -39,15 +39,13 @@ public:
 	Grafo* generar() {
 		Grafo* grafo = new Grafo(cantidadNodos, maxVecinos);
 
-		std::uniform_real_distribution<float> distX(
-			static_cast<float>(margen),
-			static_cast<float>(ancho - margen)
-		);
+		float minX = static_cast<float>(margen);
+		float maxX = static_cast<float>(ancho - margen);
+		float minY = static_cast<float>(margenSuperior);
+		float maxY = static_cast<float>(alto - margen);
 
-		std::uniform_real_distribution<float> distY(
-			static_cast<float>(margen),
-			static_cast<float>(alto - margen)
-		);
+		std::uniform_real_distribution<float> distX(minX, maxX);
+		std::uniform_real_distribution<float> distY(minY, maxY);
 		for (int i = 0; i < cantidadNodos; i++)
 			grafo->agregarNodo(distX(motor), distY(motor));
 
