@@ -145,17 +145,24 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sistema\Controlador.cpp" />
     <ClCompile Include="interfaz\PantallaConfig.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interfaz\Visualizador.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="algoritmos\.gitkeep" />
-    <None Include="ed\.gitkeep" />
-    <None Include="modelo\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sistema\Controlador.h" />
+    <ClInclude Include="ed\ArrayList.h" />
+    <ClInclude Include="ed\List.h" />
+    <ClInclude Include="interfaz\EjecutorAlgoritmos.h" />
+    <ClInclude Include="sistema\GeneradorGrafo.h" />
+    <ClInclude Include="modelo\Grafo.h" />
+    <ClInclude Include="modelo\Arco.h" />
     <ClInclude Include="interfaz\PantallaConfig.h" />
+    <ClInclude Include="modelo\Nodo.h" />
     <ClInclude Include="sistema\Config.h" />
     <ClInclude Include="interfaz\Visualizador.h" />
   </ItemGroup>
