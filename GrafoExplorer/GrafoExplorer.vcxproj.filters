@@ -24,6 +24,9 @@
     <ClCompile Include="interfaz\PantallaConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="sistema\Controlador.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="algoritmos\.gitkeep" />
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sistema\GeneradorGrafo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sistema\Controlador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

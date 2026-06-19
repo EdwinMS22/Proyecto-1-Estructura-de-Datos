@@ -145,6 +145,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="sistema\Controlador.cpp" />
     <ClCompile Include="interfaz\PantallaConfig.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="interfaz\Visualizador.cpp" />
@@ -153,6 +154,7 @@
     <None Include="algoritmos\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="sistema\Controlador.h" />
     <ClInclude Include="ed\ArrayList.h" />
     <ClInclude Include="ed\List.h" />
     <ClInclude Include="sistema\GeneradorGrafo.h" />
