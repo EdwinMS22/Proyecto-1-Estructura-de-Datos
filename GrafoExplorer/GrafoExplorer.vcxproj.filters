@@ -53,5 +53,8 @@
     <ClInclude Include="modelo\Grafo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="sistema\GeneradorGrafo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
