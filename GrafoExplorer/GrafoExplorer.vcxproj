@@ -151,9 +151,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="algoritmos\.gitkeep" />
-    <None Include="ed\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ed\ArrayList.h" />
+    <ClInclude Include="ed\List.h" />
     <ClInclude Include="modelo\Arco.h" />
     <ClInclude Include="interfaz\PantallaConfig.h" />
     <ClInclude Include="sistema\Config.h" />

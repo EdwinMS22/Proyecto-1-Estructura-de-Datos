@@ -26,7 +26,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ed\.gitkeep" />
     <None Include="algoritmos\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +39,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="modelo\Arco.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ed\ArrayList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ed\List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
