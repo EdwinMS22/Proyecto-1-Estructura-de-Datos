@@ -1,8 +1,8 @@
 #pragma once
 
 struct Config {
-	unsigned int anchoVentana = 1280;
-	unsigned int altoVentana = 720;
+	unsigned int anchoVentana = 1800;
+	unsigned int altoVentana = 880;
 
 	int cantidadNodos = 100;
 	float distanciaConexion = 180.0f;
