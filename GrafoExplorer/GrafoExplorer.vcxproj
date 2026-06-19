@@ -152,9 +152,9 @@
   <ItemGroup>
     <None Include="algoritmos\.gitkeep" />
     <None Include="ed\.gitkeep" />
-    <None Include="modelo\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="modelo\Arco.h" />
     <ClInclude Include="interfaz\PantallaConfig.h" />
     <ClInclude Include="sistema\Config.h" />
     <ClInclude Include="interfaz\Visualizador.h" />

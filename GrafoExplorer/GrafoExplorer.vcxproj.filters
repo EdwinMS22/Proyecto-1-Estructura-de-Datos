@@ -21,13 +21,12 @@
     <ClCompile Include="interfaz\Visualizador.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sistema\Configurador.cpp">
+    <ClCompile Include="interfaz\PantallaConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="ed\.gitkeep" />
-    <None Include="modelo\.gitkeep" />
     <None Include="algoritmos\.gitkeep" />
   </ItemGroup>
   <ItemGroup>
@@ -37,7 +36,10 @@
     <ClInclude Include="interfaz\Visualizador.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="sistema\Configurador.h">
+    <ClInclude Include="interfaz\PantallaConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="modelo\Arco.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
