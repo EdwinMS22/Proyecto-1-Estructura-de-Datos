@@ -5,10 +5,13 @@
 #include "../modelo/Grafo.h"
 #include "EjecutorAlgoritmos.h"
 
+enum class ResultadoVista { CERRAR, RECONFIGURAR };
+
 class Visualizador {
 private:
 	sf::RenderWindow& ventana;
 	const Config& config;
+	bool reconfigurar;
 	Grafo* grafoBase;
 	EjecutorAlgoritmos& ejecutor;
 	Grafo* resultado;
@@ -42,5 +45,5 @@ public:
 
 	Visualizador(sf::RenderWindow& ventana, const Config& config,
 		Grafo* grafoBase, EjecutorAlgoritmos& ejecutor);
-	void ejecutar();
+	ResultadoVista ejecutar();
 };

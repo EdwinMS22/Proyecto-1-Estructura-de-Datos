@@ -16,22 +16,25 @@ Controlador::~Controlador() {
 }
 
 int Controlador::iniciar() {
-	ventana.create(sf::VideoMode({700, 700}),
-		"GrafoExplorer - Configuracion",
-		sf::Style::Titlebar | sf::Style::Close);
+	while (true) {
+		ventana.create(sf::VideoMode({ 700, 700 }),
+			"GrafoExplorer - Configuracion",
+			sf::Style::Titlebar | sf::Style::Close);
 
-	PantallaConfig pantalla(ventana);
-	if (!pantalla.ejecutar(config))
-		return 0;
+		PantallaConfig pantalla(ventana);
+		if (!pantalla.ejecutar(config))
+			return 0;
 
-	GeneradorGrafo generador(config.cantidadNodos, config.distanciaConexion,
-							 config.maximoVecinos, config.anchoVentana, config.altoVentana);
-	grafoBase = generarGrafo();
+		// Limpiar datos de la ejecución anterior
+		delete resultado;
+		resultado = nullptr;
+		delete grafoBase;
+		grafoBase = generarGrafo();
 
-	Visualizador visualizador(ventana, config, grafoBase, *this);
-	visualizador.ejecutar();
-	
-	return 0;
+		Visualizador visualizador(ventana, config, grafoBase, *this);
+		if (visualizador.ejecutar() == ResultadoVista::CERRAR)
+			return 0;
+	}
 }
 
 Grafo* Controlador::generarGrafo() {

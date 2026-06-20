@@ -36,6 +36,7 @@ Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config,
 		config.titulo, sf::Style::Titlebar | sf::Style::Close);
 	ventana.setFramerateLimit(60);
 
+	reconfigurar = false;
 	resultado = nullptr;
 	hayFuente = fuente.openFromFile("recursos/fuentes/Roboto-SemiBold.ttf");
 	modo = Algoritmo::DFS;
@@ -43,11 +44,12 @@ Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config,
 	nodoDestino = -1;
 }
 
-void Visualizador::ejecutar() {
-	while (ventana.isOpen()) {
+ResultadoVista Visualizador::ejecutar() {
+	while (ventana.isOpen() && !reconfigurar) {
 		procesarEventos();
 		dibujar();
 	}
+	return reconfigurar ? ResultadoVista::RECONFIGURAR : ResultadoVista::CERRAR;
 }
 
 void Visualizador::procesarEventos() {
@@ -67,6 +69,7 @@ void Visualizador::procesarEventos() {
 				reiniciar();
 				break;
 			case sf::Keyboard::Key::R: reiniciar(); break;
+			case sf::Keyboard::Key::C: reconfigurar = true; break;
 			case sf::Keyboard::Key::Escape: ventana.close(); break;
 			default: break;
 			}
@@ -235,13 +238,13 @@ void Visualizador::dibujarInstruccion() {
 	case Algoritmo::DFS:
 	case Algoritmo::BFS:
 	case Algoritmo::PRIM:
-		mensaje = "Clic sobre un nodo para ejecutar desde ahi    |    G: nuevo grafo    R: reiniciar    Esc: salir";
+		mensaje = "Clic sobre un nodo para ejecutar desde ahi    |    G: nuevo grafo    R: reiniciar    C: cambiar configuracion    Esc: salir";
 		break;
 	case Algoritmo::KRUSKAL:
-		mensaje = "Kruskal se ejecuta sin seleccion    |    G: nuevo grafo    R: reiniciar    Esc: salir";
+		mensaje = "Kruskal se ejecuta sin seleccion    |    G: nuevo grafo    R: reiniciar    C: cambiar configuracion    Esc: salir";
 		break;
 	case Algoritmo::DIJKSTRA:
-		mensaje = "Clic izq: nodo inicial    Clic der: nodo destino    |    G: nuevo grafo    R: reiniciar    Esc: salir";
+		mensaje = "Clic izq: nodo inicial    Clic der: nodo destino    |    G: nuevo grafo    R: reiniciar    C: cambiar configuracion    Esc: salir";
 		break;
 	default:
 		mensaje = "";
