@@ -11,17 +11,17 @@ using std::runtime_error;
 template <typename E>
 class HeapPriorityQueue : public PriorityQueue<E> {
 private:
-	MinHeap<Pair<int, E>>* pairs;
+	MinHeap<Pair<float, E>>* pairs;
 
 public:
 	HeapPriorityQueue(int max) {
-		pairs = new MinHeap<Pair<int, E>>(max);
+		pairs = new MinHeap<Pair<float, E>>(max);
 	}
 	~HeapPriorityQueue() {
 		delete pairs;
 	}
-	void insert(E element, int priority) {
-		Pair<int, E> p(priority, element);
+	void insert(E element, float priority) {
+		Pair<float, E> p(priority, element);
 		pairs->insert(p);
 	}
 	E min() {
