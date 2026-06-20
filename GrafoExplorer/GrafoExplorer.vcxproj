@@ -152,7 +152,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="algoritmos\Dfs.h" />
+    <ClInclude Include="algoritmos\Bfs.h" />
+    <ClInclude Include="ed\ArrayQueue.h" />
     <ClInclude Include="ed\ArrayStack.h" />
+    <ClInclude Include="ed\Queue.h" />
     <ClInclude Include="ed\Stack.h" />
     <ClInclude Include="sistema\Controlador.h" />
     <ClInclude Include="ed\ArrayList.h" />
