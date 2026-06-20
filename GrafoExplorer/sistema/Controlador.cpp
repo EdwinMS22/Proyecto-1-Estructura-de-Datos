@@ -1,5 +1,6 @@
 #include "Controlador.h"
 #include "GeneradorGrafo.h"
+#include "../algoritmos/Dfs.h"
 #include "../interfaz/PantallaConfig.h"
 #include "../interfaz/Visualizador.h"
 
@@ -52,7 +53,7 @@ Grafo* Controlador::ejecutarAlgoritmo(Algoritmo algoritmo, int nodoInicio, int n
 	resultado = nullptr;
 
 	switch (algoritmo) {
-		case Algoritmo::DFS:      /* resultado = dfs(*grafoBase, nodoInicio); */ break;
+		case Algoritmo::DFS:      resultado = dfs(*grafoBase, nodoInicio); break;
 		case Algoritmo::BFS:      /* resultado = bfs(*grafoBase, nodoInicio); */ break;
 		case Algoritmo::PRIM:     /* resultado = prim(*grafoBase, nodoInicio); */ break;
 		case Algoritmo::KRUSKAL:  /* resultado = kruskal(*grafoBase); */ break;

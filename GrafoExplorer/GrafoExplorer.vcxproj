@@ -151,9 +151,9 @@
     <ClCompile Include="interfaz\Visualizador.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="algoritmos\.gitkeep" />
-  </ItemGroup>
-  <ItemGroup>
+    <ClInclude Include="algoritmos\Dfs.h" />
+    <ClInclude Include="ed\ArrayStack.h" />
+    <ClInclude Include="ed\Stack.h" />
     <ClInclude Include="sistema\Controlador.h" />
     <ClInclude Include="ed\ArrayList.h" />
     <ClInclude Include="ed\List.h" />
