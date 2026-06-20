@@ -176,6 +176,11 @@ void Visualizador::dibujarGrafo(Grafo* grafo, bool resaltado) {
 	for (int i = 0; i < grafo->cantidadNodos(); i++) {
 		Nodo* n = grafo->obtenerNodo(i);
 
+		// En la capa de resultado solo se resaltan los nodos alcanzados (los que tienen
+		// alguna arista en el resultado); los no alcanzados se ven con el grafo base.
+		if (resaltado && n->gradoActual() == 0)
+			continue;
+
 		sf::Color relleno = resaltado ? COLOR_NODO_RES : COLOR_NODO;
 		if (!resaltado && (n->numero == nodoInicio || n->numero == nodoDestino))
 			relleno = COLOR_NODO_SEL;
