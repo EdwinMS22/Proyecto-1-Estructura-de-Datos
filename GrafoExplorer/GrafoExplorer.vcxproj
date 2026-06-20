@@ -162,6 +162,7 @@
     <ClInclude Include="ed\Queue.h" />
     <ClInclude Include="ed\Stack.h" />
     <ClInclude Include="algoritmos\Prim.h" />
+    <ClInclude Include="algoritmos\Kruskal.h" />
     <ClInclude Include="sistema\Controlador.h" />
     <ClInclude Include="ed\ArrayList.h" />
     <ClInclude Include="ed\List.h" />
