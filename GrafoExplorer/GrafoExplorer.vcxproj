@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="algoritmos\Dfs.h" />
     <ClInclude Include="algoritmos\Bfs.h" />
+    <ClInclude Include="algoritmos\Dijkstra.h" />
     <ClInclude Include="ed\ArrayQueue.h" />
     <ClInclude Include="ed\ArrayStack.h" />
     <ClInclude Include="ed\HeapPriorityQueue.h" />
