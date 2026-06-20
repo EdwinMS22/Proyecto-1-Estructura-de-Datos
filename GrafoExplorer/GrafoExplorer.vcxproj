@@ -155,6 +155,10 @@
     <ClInclude Include="algoritmos\Bfs.h" />
     <ClInclude Include="ed\ArrayQueue.h" />
     <ClInclude Include="ed\ArrayStack.h" />
+    <ClInclude Include="ed\HeapPriorityQueue.h" />
+    <ClInclude Include="ed\MinHeap.h" />
+    <ClInclude Include="ed\Pair.h" />
+    <ClInclude Include="ed\PriorityQueue.h" />
     <ClInclude Include="ed\Queue.h" />
     <ClInclude Include="ed\Stack.h" />
     <ClInclude Include="sistema\Controlador.h" />
