@@ -19,7 +19,7 @@ inline Grafo* prim(Grafo& g, int inicio) {
 	for (int i = 0; i < nodos; i++)
 		visitado[i] = false;
 
-	HeapPriorityQueue<Arco*> Arcos(arcos);
+	HeapPriorityQueue<Arco*> Arcos(arcos < 1 ? 1 : 2 * arcos);
 	int nodoActual = inicio;
 	int visitados = 0;
 
