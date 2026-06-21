@@ -1,3 +1,16 @@
+/*
+ * Visualizador.h
+ *
+ * Pantalla principal de visualización: dibuja el grafo base y, si
+ * existe, el resultado de un algoritmo (DFS/BFS/Prim/Kruskal/Dijkstra)
+ * sobre la misma ventana. Gestiona la barra de herramientas, la
+ * selección de nodos por clic y la regeneración del grafo, delegando
+ * la ejecución de algoritmos en EjecutorAlgoritmos para mantenerse
+ * desacoplado de esa lógica.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #include <cstdio>
 #include <optional>
 #include "Visualizador.h"
@@ -26,6 +39,7 @@ namespace {
 	const sf::Color COLOR_BOTON(36, 44, 60);
 	const sf::Color COLOR_BOTON_ON(24, 95, 165);
 	const sf::Color COLOR_INSTR(143, 163, 188);
+	const sf::Color COLOR_NODO_SIN_RUTA(220, 60, 60);
 }
 
 Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config,
@@ -42,6 +56,7 @@ Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config,
 	modo = Algoritmo::DFS;
 	nodoInicio = -1;
 	nodoDestino = -1;
+	sinRuta = false;
 }
 
 ResultadoVista Visualizador::ejecutar() {
@@ -85,7 +100,7 @@ void Visualizador::procesarEventos() {
 				}
 			}
 			if (punto.y < ALTO_HUD)
-				continue;   // clic en la franja del menu/ayuda: no se interpreta como nodo
+				continue;
 
 			int nodo = nodoEnPosicion(punto);
 			if (nodo != -1)
@@ -98,10 +113,13 @@ void Visualizador::seleccionarAlgoritmo(Algoritmo algoritmo) {
 	modo = algoritmo;
 	reiniciar();
 	if (modo == Algoritmo::KRUSKAL)
-		solicitarEjecucion();   // Kruskal no recibe parametros: se ejecuta de una
+		solicitarEjecucion();
 }
 
 void Visualizador::clicEnNodo(int numeroNodo, bool botonDerecho) {
+	if (resultado != nullptr && modo == Algoritmo::DIJKSTRA)
+		return;
+	
 	if (modo == Algoritmo::DIJKSTRA) {
 		if (botonDerecho) nodoDestino = numeroNodo;
 		else nodoInicio = numeroNodo;
@@ -113,17 +131,19 @@ void Visualizador::clicEnNodo(int numeroNodo, bool botonDerecho) {
 		nodoInicio = numeroNodo;
 		solicitarEjecucion();
 	}
-	// Kruskal ignora los clics
 }
 
 void Visualizador::solicitarEjecucion() {
 	resultado = ejecutor.ejecutarAlgoritmo(modo, nodoInicio, nodoDestino);
+	sinRuta = (modo == Algoritmo::DIJKSTRA && resultado != nullptr &&
+		resultado->cantidadArcos() == 0 && nodoInicio != nodoDestino);
 }
 
 void Visualizador::reiniciar() {
 	resultado = nullptr;
 	nodoInicio = -1;
 	nodoDestino = -1;
+	sinRuta = false;
 }
 
 int Visualizador::botonEnPosicion(sf::Vector2f punto) {
@@ -179,14 +199,12 @@ void Visualizador::dibujarGrafo(Grafo* grafo, bool resaltado) {
 	for (int i = 0; i < grafo->cantidadNodos(); i++) {
 		Nodo* n = grafo->obtenerNodo(i);
 
-		// En la capa de resultado solo se resaltan los nodos alcanzados (los que tienen
-		// alguna arista en el resultado); los no alcanzados se ven con el grafo base.
 		if (resaltado && n->gradoActual() == 0)
 			continue;
 
 		sf::Color relleno = resaltado ? COLOR_NODO_RES : COLOR_NODO;
 		if (!resaltado && (n->numero == nodoInicio || n->numero == nodoDestino))
-			relleno = COLOR_NODO_SEL;
+			relleno = sinRuta ? COLOR_NODO_SIN_RUTA : COLOR_NODO_SEL;
 		circulo.setFillColor(relleno);
 		circulo.setPosition({ n->x, n->y });
 		ventana.draw(circulo);

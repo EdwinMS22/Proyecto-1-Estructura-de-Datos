@@ -1,3 +1,28 @@
+/*
+ * PantallaConfig.cpp
+ *
+ * Implementación de la pantalla de configuración inicial de
+ * GrafoExplorer. Permite al usuario ingresar mediante teclado los
+ * parámetros de Config antes de generar el grafo. Dibuja los campos 
+ * en pantalla, resaltando el campo activo. Valida que todos los campos 
+ * contengan valores  numéricos positivos antes de aplicar la configuración.
+ *
+ * Funcionalidades:
+ * - Campo (struct local): agrupa la etiqueta, el valor en texto y si
+ *   el campo permite punto decimal.
+ * - parsearPositivo(s, destino): función local que intenta convertir
+ *   un string a un float estrictamente positivo.
+ * - aplicar(campos, config): función local que parsea los cinco campos
+ *   y, si todos son válidos, los vuelca sobre el Config recibido.
+ * - dibujar(ventana, fuente, campos, activo, error): función local que
+ *   renderiza la ventana.
+ * - ejecutar(config): inicializa los campos con los valores actuales de config, 
+ *	 procesa eventos de teclado y, al confirmar con éxito, recrea la ventana con 
+ *   las nuevas dimensiones y aplica la configuración.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #include <string>
 #include <sstream>
 #include <optional>
