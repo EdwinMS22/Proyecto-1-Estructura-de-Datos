@@ -1,3 +1,24 @@
+/*
+ * GeneradorGrafo.h
+ *
+ * Encargado de generar grafos no dirigidos aleatorios para
+ * GrafoExplorer. Distribuye los nodos en posiciones aleatorias dentro
+ * del área de la ventana (respetando márgenes laterales y un margen
+ * superior reservado para el HUD), y conecta los nodos cercanos entre
+ * sí según una distancia de conexión configurable y un máximo de
+ * vecinos por nodo. El grafo resultante puede quedar desconectado
+ * dependiendo de la distribución generada.
+ *
+ * Funcionalidades:
+ * - generar(): crea un nuevo Grafo, ubica los nodos en posiciones
+ *   aleatorias dentro del área disponible y agrega arcos entre pares de
+ *   nodos cuya distancia euclidiana sea menor o igual al umbral de
+ *   conexión, respetando el máximo de vecinos por nodo. Devuelve un
+ *   puntero dinámico cuya propiedad es de quién llame la función
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <random>
@@ -11,18 +32,16 @@ private:
 	int maxVecinos;
 	int ancho;
 	int alto;
-	int margen;	// para que no se corten en la pantalla
+	int margen;
 	int margenSuperior;
 	std::mt19937 motor;
 
 public:
-	// Constructor por defecto: semilla aleatoria distinta en cada corrida
 	GeneradorGrafo(int cantidadNodos, float distanciaConexion, int maxVecinos,
 		int ancho, int alto, int margen = 20, int margenSuperior = 20)
 		: GeneradorGrafo(cantidadNodos, distanciaConexion, maxVecinos,
 			ancho, alto, margen, margenSuperior, std::random_device{}()) {
 	}
-
 	GeneradorGrafo(int cantidadNodos, float distanciaConexion, int maxVecinos,
 		int ancho, int alto, int margen, int margenSuperior, unsigned int semilla)
 		: motor(semilla) {
@@ -35,7 +54,6 @@ public:
 		this->margenSuperior = margenSuperior;
 	}
 
-	// El que lo llama es dueño y debe liberarlo
 	Grafo* generar() {
 		Grafo* grafo = new Grafo(cantidadNodos, maxVecinos);
 
@@ -54,10 +72,10 @@ public:
 			Nodo* ni = grafo->obtenerNodo(i);
 			for (int j = i + 1; j < cantidadNodos; j++) {
 				if (ni->gradoActual() >= maxVecinos)
-					break;	// i ya está lleno por lo que no toma más vecinos
+					break;
 				Nodo* nj = grafo->obtenerNodo(j);
 				if (nj->gradoActual() >= maxVecinos)
-					continue;	//j está lleno y se prueba con el siguiente
+					continue;
 				float dx = ni->x - nj->x;
 				float dy = ni->y - nj->y;
 				if (dx * dx + dy * dy <= umbralCuadrado)

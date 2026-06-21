@@ -1,3 +1,33 @@
+/*
+ * Controlador.cpp
+ *
+ * Implementación de la clase Controlador. Maneja el ciclo de vida
+ * completo de la aplicación: alterna entre la pantalla de
+ * configuración y la visualización del grafo, reutilizando la misma 
+ * ventana de SFML al recrearla con cada nueva configuración. Administra 
+ * la memoria del grafo base y del grafo resultado. Despacha la ejecución 
+ * de los algoritmos de grafos según lo solicitado desde la interfaz.
+ *
+ * Funcionalidades:
+ * - Controlador(): inicializa los punteros de grafoBase y resultado en
+ *   nullptr.
+ * - ~Controlador(): libera la memoria de resultado y grafoBase.
+ * - iniciar(): ciclo principal; crea la ventana de configuración,
+ *   ejecuta PantallaConfig, genera un nuevo grafo base con la
+ *   configuración resultante y lanza el Visualizador.
+ * - generarGrafo(): crea un GeneradorGrafo con los parámetros de
+ *   config (reservando el margen superior según ALTO_HUD del
+ *   Visualizador) y devuelve el grafo generado.
+ * - regenerarGrafo(): libera el grafo resultado y el grafo base
+ *   actuales, genera un nuevo grafo base y lo retorna.
+ * - ejecutarAlgoritmo(algoritmo, nodoInicio, nodoDestino): libera el
+ *   resultado anterior y despacha hacia la función del algoritmo
+ *   correspondiente sobre el grafo base, almacenando y devolviendo 
+ *   el nuevo grafo resultado.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #include "Controlador.h"
 #include "GeneradorGrafo.h"
 #include "../algoritmos/Dfs.h"
@@ -28,7 +58,6 @@ int Controlador::iniciar() {
 		if (!pantalla.ejecutar(config))
 			return 0;
 
-		// Limpiar datos de la ejecución anterior
 		delete resultado;
 		resultado = nullptr;
 		delete grafoBase;
