@@ -38,7 +38,7 @@ Visualizador::Visualizador(sf::RenderWindow& ventana, const Config& config,
 
 	reconfigurar = false;
 	resultado = nullptr;
-	hayFuente = fuente.openFromFile("recursos/fuentes/Roboto-SemiBold.ttf");
+	hayFuente = fuente.openFromFile("recursos/Roboto-SemiBold.ttf");
 	modo = Algoritmo::DFS;
 	nodoInicio = -1;
 	nodoDestino = -1;

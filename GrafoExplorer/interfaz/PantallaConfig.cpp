@@ -74,7 +74,7 @@ PantallaConfig::PantallaConfig(sf::RenderWindow& ventana) : ventana(ventana) {}
 
 bool PantallaConfig::ejecutar(Config& config) {
 	sf::Font fuente;
-	if (!fuente.openFromFile("recursos/fuentes/Roboto-SemiBold.ttf"))
+	if (!fuente.openFromFile("recursos/Roboto-SemiBold.ttf"))
 		return false;
 
 	Campo campos[5] = {
