@@ -14,13 +14,13 @@ inline Grafo* dijkstra(Grafo& g, int inicio, int destino) {
 		arbol->agregarNodo(nodo->x, nodo->y);
 	}
 
-	int* distancia = new int[nodos];
+	float* distancia = new float[nodos];
 	for (int i = 0; i < nodos; i++) {
 		if (i == inicio) {
 			distancia[i] = 0;
 		}
 		else {
-			distancia[i] = 2147483647;
+			distancia[i] = 1e30f;
 		}
 	}
 
@@ -35,7 +35,7 @@ inline Grafo* dijkstra(Grafo& g, int inicio, int destino) {
 
 	while (definitivos[destino] == false) {
 		int nodoActual = -1;
-		int distanciaMenor = 2147483647;
+		float distanciaMenor = 1e30f;
 		for (int i = 0; i < nodos; i++) {
 			if (!definitivos[i] && distancia[i] < distanciaMenor) {
 				distanciaMenor = distancia[i];
@@ -56,7 +56,7 @@ inline Grafo* dijkstra(Grafo& g, int inicio, int destino) {
 			int vecino = arco->otroExtremo(nodoActual);
 
 			if (!definitivos[vecino]) {
-				int nuevaDistancia = distancia[nodoActual] + arco->peso;
+				float nuevaDistancia = distancia[nodoActual] + arco->peso;
 				if (nuevaDistancia < distancia[vecino]) {
 					distancia[vecino] = nuevaDistancia;
 					rutas[vecino] = nodoActual;
