@@ -1,3 +1,13 @@
+/*
+ * Queue.h
+ *
+ * Interfaz genérica para una cola. Define el comportamiento base de una 
+ * estructura de datos lineal donde los elementos se insertan al final y 
+ * se eliminan desde el frente, manteniendo el orden de llegada.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 template <typename E>

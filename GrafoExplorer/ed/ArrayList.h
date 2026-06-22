@@ -1,3 +1,19 @@
+/*
+ * ArrayList.h
+ *
+ * Implementación de una lista genérica basada en arreglo dinámico con tamaño fijo.
+ * La estructura mantiene internamente un arreglo contiguo de elementos y un cursor
+ * (posición actual) que permite realizar operaciones tipo lista secuencial como inserción,
+ * eliminación y recorrido. Está diseñada para trabajar como una implementación concreta
+ * de la interfaz List<E>.
+ *
+ * Manejo de errores:
+ * La clase lanza excepciones runtime_error en casos como desbordamiento de capacidad,
+ * acceso inválido a elementos o índices fuera de rango.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <iostream>

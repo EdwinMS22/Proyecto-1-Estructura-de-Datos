@@ -1,3 +1,18 @@
+/*
+ * ArrayStack.h
+ *
+ * Implementación de una pila genérica basada en un arreglo dinámico con tamaño fijo.
+ * La estructura almacena los elementos de forma contigua y utiliza un índice superior
+ * (top) para controlar las operaciones de inserción y eliminación siguiendo el principio
+ * LIFO. Está diseñada como una implementación concreta de la interfaz Stack<E>.
+ *
+ * Manejo de errores:
+ * La clase lanza excepciones runtime_error en casos como desbordamiento de capacidad,
+ * intentos de inserción cuando la pila está llena o acceso a elementos cuando está vacía.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <iostream>

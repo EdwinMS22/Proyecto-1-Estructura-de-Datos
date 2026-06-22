@@ -1,3 +1,15 @@
+/*
+ * List.h
+ *
+ * Interfaz genérica para una lista abstracta.
+ * Define el comportamiento base de una estructura de datos lineal que permite
+ * almacenamiento ordenado de elementos con acceso mediante una posición interna
+ * (cursor) que representa la posición actual sobre la cual se realizan operaciones 
+ * de inserción, eliminación y acceso.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 template <typename E>

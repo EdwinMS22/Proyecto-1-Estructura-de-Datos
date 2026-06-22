@@ -1,3 +1,14 @@
+/*
+ * PriorityQueue.h
+ *
+ * Interfaz genérica para una cola de prioridad.
+ * Define el comportamiento base de una estructura de datos donde cada elemento
+ * tiene una prioridad asociada, y el acceso a los elementos se realiza según
+ * dicha prioridad en lugar del orden de inserción.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 template <typename E>

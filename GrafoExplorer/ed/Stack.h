@@ -1,3 +1,13 @@
+/*
+ * Stack.h
+ *
+ * Interfaz genérica para una pila. Define el comportamiento base de 
+ * una estructura de datos lineal donde el último elemento en entrar 
+ * es el primero en salir.
+ * 
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 template <typename E>

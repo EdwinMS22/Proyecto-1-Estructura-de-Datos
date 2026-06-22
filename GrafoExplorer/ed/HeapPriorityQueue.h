@@ -1,3 +1,18 @@
+/*
+ * HeapPriorityQueue.h
+ *
+ * Implementación de una cola de prioridad genérica basada en un heap mínimo.
+ * La estructura utiliza un MinHeap de pares (priority, value) para mantener los
+ * elementos ordenados automáticamente según su prioridad, permitiendo acceder
+ * siempre al elemento de menor prioridad de forma eficiente.
+ *
+ * Manejo de errores:
+ * Esta implementación depende del MinHeap subyacente, el cual puede lanzar
+ * excepciones en casos como desbordamiento o acceso a estructuras vacías.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <iostream>

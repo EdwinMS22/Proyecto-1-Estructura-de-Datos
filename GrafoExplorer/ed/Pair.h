@@ -1,3 +1,18 @@
+/*
+ * Pair.h
+ *
+ * Implementación genérica de una estructura par (clave, valor).
+ * Esta clase permite almacenar dos tipos de datos relacionados, donde la clave
+ * se utiliza principalmente para operaciones de comparación y ordenamiento,
+ * mientras que el valor representa la información asociada.
+ * 
+ * Consideraciones:
+ * - Las comparaciones NO consideran el valor, únicamente la clave.
+ * - Esto lo hace adecuado para estructuras ordenadas como MinHeap o PriorityQueue.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <iostream>

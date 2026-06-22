@@ -1,3 +1,19 @@
+/*
+ * MinHeap.h
+ *
+ * Implementación de un heap mínimo genérico basado en arreglo.
+ * La estructura mantiene un árbol binario completo representado en un arreglo
+ * contiguo, garantizando que cada nodo padre sea menor o igual que sus hijos.
+ *
+ * Manejo de errores:
+ * La clase lanza excepciones runtime_error en casos como:
+ * - Inserción en heap lleno.
+ * - Acceso o eliminación en heap vacío.
+ * - Índices fuera de rango.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include <iostream>
@@ -22,7 +38,7 @@ private:
 	int parent(int pos) {
 		return (pos - 1) / 2;
 	}
-	void swap(int pos1, int pos2) { // existe un swap de std
+	void swap(int pos1, int pos2) {
 		E temp = elements[pos1];
 		elements[pos1] = elements[pos2];
 		elements[pos2] = temp;
