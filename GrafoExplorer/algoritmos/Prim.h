@@ -1,7 +1,30 @@
+/*
+ * Archivo: Prim.h
+ *
+ * Implementación del algoritmo de Prim para generar un árbol de expansión mínima
+ * sobre un grafo no dirigido. El algoritmo construye el árbol de forma incremental: 
+ * comenzando desde un nodo inicial, mantiene un conjunto de nodos ya incluidos en 
+ * el árbol y en cada paso agrega el arco de menor peso que conecta un nodo visitado 
+ * con uno no visitado. Utiliza HeapPriorityQueue para seleccionar eficientemente el 
+ * arco mínimo candidato.
+ *
+ * Funcionalidades:
+ * - prim(Grafo& g, int inicio): toma una referencia al grafo base y el índice
+ *   del nodo inicial. Devuelve un nuevo grafo que contiene los mismos nodos que g
+ *   con sus posiciones originales, pero solo los arcos que forman el árbol de
+ *   expansión mínima a partir de inicio.
+ * - En cada iteración, busca el primer arco en la cola que conecte un nodo
+ *   visitado con uno no visitado; descarta los demás candidatos.
+ * - Si el grafo es desconectado, devuelve un árbol que solo cubre la componente
+ *   conexa que contiene el nodo inicial.
+ * - Memoria: el grafo resultado es responsabilidad de quien invoca liberar.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include "../modelo/Grafo.h"
-// hacer los includes de las estructuras de datos
 #include "../ed/HeapPriorityQueue.h"
 
 inline Grafo* prim(Grafo& g, int inicio) {
@@ -27,7 +50,6 @@ inline Grafo* prim(Grafo& g, int inicio) {
 		visitado[nodoActual] = true;
 		visitados++;
 
-
 		Nodo* n = g.obtenerNodo(nodoActual);
 		for (int i = 0; i < n->gradoActual(); i++) {
 			n->adyacencia.goToPos(i);
@@ -40,7 +62,6 @@ inline Grafo* prim(Grafo& g, int inicio) {
 
 		Arco* arcoMenor = nullptr;
 		int origen = -1, destino = -1;
-
 		while (!Arcos.isEmpty()) {
 			Arco* candidato = Arcos.removeMin();
 			int nodo1 = candidato->extremoA;
@@ -67,5 +88,6 @@ inline Grafo* prim(Grafo& g, int inicio) {
 
 	}
 	delete[] visitado;
+
 	return arbol;
 }

@@ -1,3 +1,23 @@
+/*
+ * Archivo: Bfs.h
+ *
+ * Implementacion del algoritmo de búsqueda en anchura (BFS) para generar un 
+ * árbol de expansión sobre un grafo no dirigido. El algoritmo parte de un 
+ * nodo inicial, lo marca como visitado, y explora todos sus vecinos por 
+ * niveles mediante una cola antes de descender a la siguiente profundidad. 
+ * Solo agrega arcos hacia nodos aún no visitados, formando un árbol conexo
+ * que representa el espacio alcanzable desde el inicio.
+ *
+ * Funcionalidades:
+ * - bfs(Grafo& g, int inicio): toma una referencia al grafo base y el índice
+ *   del nodo inicial. Devuelve un nuevo grafo que contiene los mismos nodos 
+ *   que g con sus posiciones originales, pero solo los arcos que forman
+ *   el árbol BFS a partir de inicio.
+ * - Memoria: el grafo resultado es responsabilidad de quien invoca liberar.
+ *
+ * Autores: Edwin Muñoz, Francisco Mora
+ */
+
 #pragma once
 
 #include "../modelo/Grafo.h"
@@ -36,7 +56,7 @@ inline Grafo* bfs(Grafo& g, int inicio) {
 			}
 		}
 	}
-
 	delete[] visitado;
+
 	return arbol;
 }
